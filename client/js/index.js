@@ -15,7 +15,7 @@ const emailForm = document.querySelector("#emailForm");
 
 const toast = document.querySelector(".toast");
 
-const baseURL = "http://localhost:3000";
+const baseURL = "https://vsshare.herokuapp.com";
 const uploadURL = `${baseURL}/api/files`;
 const emailURL = `${baseURL}/api/files/send`;
 
@@ -156,7 +156,9 @@ emailForm.addEventListener("submit", e => {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                showToast("Email Sent");
+                showToast(
+                    "Email Sent! Check spam or promotions if email not found."
+                );
                 sharingContainer.style.display = "none"; // hide the box
             }
         })
